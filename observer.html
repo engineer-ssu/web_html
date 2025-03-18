@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: black;
+        font: 'nanumsquare';
+      }
+      div {
+        margin-top: 1000px;
+        color: white;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+    </style>
+    <div>
+      참고 동영상
+      <a
+        href="https://www.youtube.com/watch?v=e4Afka5IOZ8&t=160s"
+        target="_blank"
+        >웹페이지에 스크롤 애니메이션 쉽게 주는 법</a
+      >
+    </div>
+    <div><h1>아이폰 15출시</h1></div>
+    <div><h1>충전 포트를 USB-C 타입으로 바꿔달라고요?</h1></div>
+    <!-- 나타날짜 opcaity 값 변경  -->
+    <div><h1>그래서 충전 포트를 제거했습니다.</h1></div>
+    <div style="background: yellow">ff</div>
+    <script>
+      let observer = new IntersectionObserver((e) => {
+        console.log('Check');
+        e.forEach((box) => {
+          if (box.isIntersecting) {
+            console.log(e); // 박스 1,2,3,45
+            box.target.style.opacity = 1;
+            box.target.style.transform = 'roate(0deg)';
+          } else {
+            box.target.style.opacity = 0;
+          }
+
+          box.intersectionRatio;
+        });
+      });
+
+      let div = document.querySelectorAll('div');
+
+      // html 요소 감시해줌
+      observer.observe(div[0]);
+      observer.observe(div[1]);
+      observer.observe(div[2]);
+      observer.observe(div[3]);
+    </script>
+  </body>
+</html>
