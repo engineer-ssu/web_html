@@ -44,7 +44,12 @@
           if (box.isIntersecting) {
             console.log(e); // 박스 1,2,3,45
             box.target.style.opacity = 1;
+            box.target.style.transform = 'roate(0deg)';
+          } else {
+            box.target.style.opacity = 0;
           }
+
+          box.intersectionRatio;
         });
       });
 
